@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<section class="container-fluid">
+    <div class="row" *ngIf="ifCondition">
+        <div class="col-12">
+            <h3>Condición if</h3>
+        </div>
+    </div>
+
+    <div class="row" [ngSwitch]="switchCondition">
+        <div class="col-12" *ngSwitchCase='0'>
+            <h4>Cero</h4>
+        </div>
+        <div class="col-12" *ngSwitchCase='1'>
+            <h4>Uno</h4>
+        </div>
+        <div class="col-12" *ngSwitchCase='2'>
+            <h4>Dos</h4>
+        </div>
+        <div class="col-12" *ngSwitchDefault>
+            <h4>Default</h4>
+        </div>
+    </div>
+
+    <ng-container *ngFor="let item of forList">
+        <div class="row" [ngClass]="{disabled: item.active}">
+            <div class="col-4">
+                <h5>{{item.nombre}}</h5>
+            </div>
+            <div class="col-4" [ngClass]="{red: item.edad < 18}">
+                <h5>{{item.edad}}</h5>
+            </div>
+            <div class="col-4" [ngClass]="{blue: item.genero == 'M', pink: item.genero == 'F'}">
+                <h5>{{item.genero}}</h5>
+            </div>
+        </div>
+    </ng-container>
+
+</section>
