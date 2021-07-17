@@ -2,7 +2,54 @@
     <div class="row wrapper">
         <div class="col-12 vertical-align">
             <div class="login-wrapper">
-                
+                <div class="row wrapper">
+                    <div class="col vertical-align">
+                        <form [formGroup]="loginFormGroup" (ngSubmit)="onLogin(loginFormGroup)">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h2>Iniciar sesión</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" matInput formControlName="email" placeholder="Email">
+                                        <mat-hint>Ingresar correo electrónico</mat-hint>
+                                        <mat-error *ngIf="!loginFormGroup.get('email').valid">
+                                            El valor es inválido
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label>Contraseña</mat-label>
+                                        <input type="password" matInput formControlName="password"
+                                            placeholder="Contraseña">
+                                        <mat-hint>Ingresar contraseña</mat-hint>
+                                        <mat-error *ngIf="!loginFormGroup.get('password').valid">
+                                            El valor es inválido
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <re-captcha (resolved)="resolved($event)"
+                                        siteKey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></re-captcha>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button mat-stroked-button color="accent" *ngIf="showButtonFlag"
+                                        type="submit">Ingresar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

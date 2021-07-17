@@ -1,13 +1,18 @@
 .login-wrapper {
   width: 40vw;
-  height: 50vh;
+  height: 55vh;
 
-  background-color: gray;
+  background-color: rgb(209, 209, 209);
   border-radius: 15px;
+  padding: 2rem;
 
   margin: auto;
 }
 
 .login-container {
   height: 75vh;
+}
+
+.captcha-wrapper {
+  margin: auto;
 }
