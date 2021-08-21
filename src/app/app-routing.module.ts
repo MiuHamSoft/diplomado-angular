@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './common/home/home.component';
 import { LoginComponent } from './common/login/login.component';
 import { ConditionalsComponent } from './examples/conditionals/conditionals.component';
+import { GeneralComponent } from './examples/general/general.component';
+import { FilesComponent } from './general/files/files.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,6 +16,14 @@ const routes: Routes = [
       {
         path: 'condicionales',
         component: ConditionalsComponent
+      },
+      {
+        path: 'generales',
+        component: GeneralComponent
+      },
+      {
+        path: 'archivos',
+        component: FilesComponent
       },
       {
         path: '',

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastService } from 'angular-toastify';
-import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { AuthorizationService } from 'src/app/services/auth/authorization.service';
 
 @Component({
@@ -16,8 +15,7 @@ export class LoginComponent implements OnInit {
   showButtonFlag: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-    private auth: AuthorizationService,
-    private recaptchaV3Service: ReCaptchaV3Service) { }
+    private auth: AuthorizationService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -26,18 +24,8 @@ export class LoginComponent implements OnInit {
   onLogin(form: FormGroup) {
     console.log(form)
     if (form.valid) {
-      // this.executeImportantAction();
       this.auth.login(form.value);
     }
-  }
-
-  public executeImportantAction(): void {
-    this.recaptchaV3Service.execute('importantAction')
-      .subscribe((token) => this.handleToken(token));
-  }
-
-  handleToken(token) {
-    console.log(token)
   }
 
   resolved(captchaResponse: string) {
